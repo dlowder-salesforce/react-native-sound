@@ -76,8 +76,10 @@ RCT_EXPORT_METHOD(setCategory:(nonnull NSNumber*)key withValue:(NSString*)catego
     [session setCategory: AVAudioSessionCategoryRecord error: nil];
   } else if ([categoryName isEqual: @"PlayAndRecord"]) {
     [session setCategory: AVAudioSessionCategoryPlayAndRecord error: nil];
+#if !TARGET_OS_TV
   } else if ([categoryName isEqual: @"AudioProcessing"]) {
     [session setCategory: AVAudioSessionCategoryAudioProcessing error: nil];
+#endif
   } else if ([categoryName isEqual: @"MultiRoute"]) {
     [session setCategory: AVAudioSessionCategoryMultiRoute error: nil];
   }

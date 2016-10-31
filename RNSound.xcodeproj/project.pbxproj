@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		19825A221BD4A89800EE0337 /* RNSound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 19825A211BD4A89800EE0337 /* RNSound.h */; };
 		19825A241BD4A89800EE0337 /* RNSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 19825A231BD4A89800EE0337 /* RNSound.m */; };
+		2D8379321DC7C7C800962773 /* RNSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 19825A231BD4A89800EE0337 /* RNSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,16 +23,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2D8379271DC7C7B500962773 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		19825A1E1BD4A89800EE0337 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSound.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19825A211BD4A89800EE0337 /* RNSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSound.h; sourceTree = "<group>"; };
 		19825A231BD4A89800EE0337 /* RNSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSound.m; sourceTree = "<group>"; };
+		2D8379291DC7C7B500962773 /* libRNSound-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRNSound-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		19825A1B1BD4A89800EE0337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8379261DC7C7B500962773 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				19825A1E1BD4A89800EE0337 /* libRNSound.a */,
+				2D8379291DC7C7B500962773 /* libRNSound-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +105,23 @@
 			productReference = 19825A1E1BD4A89800EE0337 /* libRNSound.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		2D8379281DC7C7B500962773 /* RNSound-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D83792F1DC7C7B500962773 /* Build configuration list for PBXNativeTarget "RNSound-tvOS" */;
+			buildPhases = (
+				2D8379251DC7C7B500962773 /* Sources */,
+				2D8379261DC7C7B500962773 /* Frameworks */,
+				2D8379271DC7C7B500962773 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNSound-tvOS";
+			productName = "RNSound-tvOS";
+			productReference = 2D8379291DC7C7B500962773 /* libRNSound-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -97,6 +133,10 @@
 				TargetAttributes = {
 					19825A1D1BD4A89800EE0337 = {
 						CreatedOnToolsVersion = 7.0.1;
+					};
+					2D8379281DC7C7B500962773 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -113,6 +153,7 @@
 			projectRoot = "";
 			targets = (
 				19825A1D1BD4A89800EE0337 /* RNSound */,
+				2D8379281DC7C7B500962773 /* RNSound-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +164,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				19825A241BD4A89800EE0337 /* RNSound.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8379251DC7C7B500962773 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8379321DC7C7C800962773 /* RNSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +267,7 @@
 		19825A281BD4A89800EE0337 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -227,9 +277,42 @@
 		19825A291BD4A89800EE0337 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2D8379301DC7C7B500962773 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		2D8379311DC7C7B500962773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -253,6 +336,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2D83792F1DC7C7B500962773 /* Build configuration list for PBXNativeTarget "RNSound-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8379301DC7C7B500962773 /* Debug */,
+				2D8379311DC7C7B500962773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
